@@ -3,15 +3,15 @@
 // После этого - выполнить операцию, которая выведет массив в консоль.
 
 const txt = document.querySelector("#txt");
+const form = document.querySelector("#form")
 let keys = [];
 
+form.addEventListener("submit", e => e.preventDefault());
+
+
 txt.addEventListener("change", e => {
-  e.preventDefault()
-  let string = e.target.value.split('')
-  string.forEach(element => {
-    keys.push(element)
-  });
-  console.log(keys)
+  keys.push(e.target.value)
   e.target.value = '';
+  console.log(keys)
 })
 
