@@ -15,3 +15,13 @@ txt.addEventListener("change", e => {
   console.log(keys)
 })
 
+const promise = new Promise (function(resolve) { 
+  return setTimeout(() => resolve(keys), 5000)
+}) 
+
+promise
+  .then(
+    function(data){
+      console.log(data)
+    }
+  )
