@@ -3,6 +3,7 @@
 // После этого - выполнить операцию, которая выведет массив в консоль.
 
 const txt = document.querySelector("#txt");
+txt.disabled = true;
 const form = document.querySelector("#form")
 let keys = [];
 
@@ -12,16 +13,17 @@ form.addEventListener("submit", e => e.preventDefault());
 txt.addEventListener("change", e => {
   keys.push(e.target.value)
   e.target.value = '';
-  console.log(keys)
 })
 
 const promise = new Promise (function(resolve) { 
+  txt.disabled = false;
   return setTimeout(() => resolve(keys), 5000)
 }) 
 
 promise
   .then(
     function(data){
+      txt.disabled = true;
       console.log(data)
     }
   )
